@@ -1,6 +1,6 @@
 package CalculatorComponents;
 
-import StackComponents.StackO;
+import StackElements.StackVector;
 
 /**
  * Calculator class that implements the Calc interface.
@@ -19,7 +19,7 @@ public class Calculator implements Calc {
     private Double firstNum = null;
     private double result;
 
-    StackO<String> stack = new StackO<>();
+    StackVector<String> stack = new StackVector<>();
 
     @Override
     public double Operate(String input) {
