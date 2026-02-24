@@ -39,7 +39,6 @@ public class StackVector<T> implements Stack<T> {
 
     @Override
     public boolean isEmpty() {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
     }
 }
