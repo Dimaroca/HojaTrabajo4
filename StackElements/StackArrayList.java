@@ -1,21 +1,33 @@
 package StackElements;
 
+import java.util.ArrayList;
+
 public class StackArrayList <T> implements Stack<T> {
-    public StackArrayList() {
+
+     ArrayList<T> items = new ArrayList<T>();
+
+    public StackArrayList(ArrayList<T> items) {
+        this.items = items;
     }
 
     @Override
-    public void push(T item) {
+    public T pop(){
+        int lastIndex = items.size() - 1;
+        T item = items.get(lastIndex);
+        items.remove(lastIndex);
+        return item;
     }
 
     @Override
-    public T pop() {
-        return null;
+    public T peek(){
+        int lastIndex = items.size() - 1;
+        return items.get(lastIndex);
     }
 
+
     @Override
-    public T peek() {
-         return null;
+    public void push( T item) {
+        items.add(item);
     }
 
     @Override
