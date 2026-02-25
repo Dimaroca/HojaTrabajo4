@@ -8,6 +8,5 @@ package CalculatorComponents;
  * expression given as a string and returns the result of the operation.
  */
 public interface Calc {
-
     double Operate(String input);
 }

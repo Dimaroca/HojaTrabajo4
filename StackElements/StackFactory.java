@@ -6,7 +6,7 @@ public class StackFactory {
         switch (type) {
             case 1:
                 StackVector<T> stackVector = new StackVector<>();
-                stackVector.setItems(10); // Establece la capacidad inicial
+                stackVector.setItems(10);
                 return stackVector;
             case 2:
                 return new StackArrayList<>(new java.util.ArrayList<>());
