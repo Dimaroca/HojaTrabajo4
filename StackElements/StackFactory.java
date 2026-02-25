@@ -11,7 +11,7 @@ public class StackFactory {
             case 2:
                 return new StackArrayList<>(new java.util.ArrayList<>());
             case 3:
-                return new StackList<>();
+                return new StackSimpleList<>();
             default:
                 throw new IllegalArgumentException("Tipo de pila no soportado: " + type);
         }
