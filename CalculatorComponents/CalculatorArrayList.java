@@ -1,3 +1,14 @@
+/**
+ * Calculator class that implements the Calc interface.
+ * <p>
+ * This calculator evaluates a mathematical expression provided as a
+ * space-separated string. It supports the basic arithmetic operators:
+ * addition (+), subtraction (-), multiplication (*), and division (/).
+ * </p>
+ * <p>
+ * Internally, it uses a stack to process the input tokens.
+ * </p>
+ */
 package CalculatorComponents;
 
 import StackElements.StackArrayList;
@@ -9,55 +20,44 @@ public class CalculatorArrayList implements Calc {
     private Double firstNum = null;
     private double result;
 
-    StackArrayList<String> stack = new StackArrayList<>(new ArrayList<>());
+    StackArrayList<Double> stack = new StackArrayList<>(new ArrayList<>());
 
     @Override
     public double Operate(String input) {
 
+        lastNum = null;
+        firstNum = null;
+        result = 0;
+
         input = input.trim();
         String[] parts = input.split(" ");
 
-        for (int i = parts.length - 1; i >= 0; i--) {
-            stack.push(parts[i]);
-        }
-
         for (int i = 0; i < parts.length; i++) {
-
-            String value = stack.pop();
+            String value = parts[i];
 
             if (value.equals("+") || value.equals("-") ||
                 value.equals("*") || value.equals("/")) {
 
-                double n1 = firstNum;
-                double n2 = lastNum;
+                lastNum = stack.pop();
+                firstNum = stack.pop();
 
                 switch (value) {
-                    case "+": 
-                        result = n1 + n2; 
-                        break;
-                    case "-": 
-                        result = n1 - n2; 
-                        break;
-                    case "*": 
-                        result = n1 * n2; 
-                        break;
-                    case "/": 
-                        result = n1 / n2; 
+                    case "+": result = firstNum + lastNum; break;
+                    case "-": result = firstNum - lastNum; break;
+                    case "*": result = firstNum * lastNum; break;
+                    case "/":
+                        if (lastNum == 0) throw new ArithmeticException("Division por cero");
+                        result = firstNum / lastNum;
                         break;
                 }
 
-                firstNum = result;
-                lastNum = null;
+                stack.push(result);
 
             } else {
-                if (firstNum == null) {
-                    firstNum = Double.parseDouble(value);
-                } else {
-                    lastNum = Double.parseDouble(value);
-                }
+                stack.push(Double.parseDouble(value));
             }
         }
 
-        return result;
+        return stack.pop();
     }
 }

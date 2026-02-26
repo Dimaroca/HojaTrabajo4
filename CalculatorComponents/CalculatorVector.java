@@ -1,7 +1,3 @@
-package CalculatorComponents;
-
-import StackElements.StackVector;
-
 /**
  * Calculator class that implements the Calc interface.
  * <p>
@@ -14,61 +10,55 @@ import StackElements.StackVector;
  * </p>
  */
 
+package CalculatorComponents;
+
+import StackElements.StackVector;
+
 public class CalculatorVector implements Calc {
+
     private Double lastNum = null;
     private Double firstNum = null;
     private double result;
 
-    StackVector<String> stack = new StackVector<>();
+    StackVector<Double> stack = new StackVector<>();
 
     @Override
     public double Operate(String input) {
+
+        lastNum = null;
+        firstNum = null;
+        result = 0;
+
         input = input.trim();
         String[] parts = input.split(" ");
         stack.setItems(parts.length);
 
-        for (int i = parts.length - 1; i >= 0; i--) {
-            stack.push(parts[i]);
-        }
-
         for (int i = 0; i < parts.length; i++) {
-            String value = stack.pop();
+            String value = parts[i];
 
             if (value.equals("+") || value.equals("-") ||
                 value.equals("*") || value.equals("/")) {
 
-                double n1 = firstNum;
-                double n2 = lastNum;
+                lastNum = stack.pop();
+                firstNum = stack.pop();
 
                 switch (value) {
-                    case "+":
-                        result = n1 + n2;
-                        break;
-                    case "-":
-                        result = n1 - n2;
-                        break;
-                    case "*":
-                        result = n1 * n2;
-                        break;
+                    case "+": result = firstNum + lastNum; break;
+                    case "-": result = firstNum - lastNum; break;
+                    case "*": result = firstNum * lastNum; break;
                     case "/":
-                        if (n2 == 0) {
-                            throw new ArithmeticException("Division por cero");
-                        }
-                        result = n1 / n2;
+                        if (lastNum == 0) throw new ArithmeticException("Division por cero");
+                        result = firstNum / lastNum;
                         break;
                 }
 
-                firstNum = result;
-                lastNum = null;
+                stack.push(result);
 
             } else {
-                if (firstNum == null) {
-                    firstNum = Double.parseDouble(value);
-                } else {
-                    lastNum = Double.parseDouble(value);
-                }
+                stack.push(Double.parseDouble(value));
             }
         }
-        return result;
+
+        return stack.pop();
     }
 }

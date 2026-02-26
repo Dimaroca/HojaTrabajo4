@@ -51,6 +51,10 @@ public class NumberOperator {
             }
         }
 
+        while (!stack.isEmpty()) {
+        postfix.add(stack.remove(stack.size() - 1));
+}
+
         return postfix;
         
     }

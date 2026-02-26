@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class StackFactory {
     
-    public static <T> Stack<T> createStack(int type, String index) {
+    public static double createStack(int type, String index) {
         NumberOperator operator = new NumberOperator();
         ArrayList<String> postfix = operator.convert(index);
         String operation = "";
@@ -20,16 +20,16 @@ public class StackFactory {
         switch (type) {
             case 1:
                 CalculatorVector calculatorVector = new CalculatorVector();
-                calculatorVector.Operate(operation);           
+                return calculatorVector.Operate(operation);           
             case 2:
                 CalculatorArrayList calculatorArrayList = new CalculatorArrayList();
-                calculatorArrayList.Operate(operation); 
+                return calculatorArrayList.Operate(operation); 
             case 3:
                 CalculatorSimpleList calculatorSimpleList = new CalculatorSimpleList();
-                calculatorSimpleList.Operate(operation); 
+                return calculatorSimpleList.Operate(operation); 
             case 4:
                 CalculatorDoubleList calculatorDoubleList = new CalculatorDoubleList();
-                calculatorDoubleList.Operate(operation); 
+                return calculatorDoubleList.Operate(operation); 
             default:
                 throw new IllegalArgumentException("Tipo de pila no soportado");
         }
