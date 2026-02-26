@@ -2,53 +2,65 @@ package StackElements;
 
 public class StackDoubleList<T> implements Stack<T> {
     
-    Nodo head;
-    Nodo tail;
+    private Nodo<T> head;
+    private Nodo<T> tail;
 
     public StackDoubleList() {
-        this.head = null;
-        this.tail = null;
+        head = null;
+        tail = null;
     }
 
     @Override
     public void push(T item) {
-        Nodo newNodo = new Nodo((Integer) item);
+        Nodo<T> newNodo = new Nodo<>(item);
+
         if (head == null) {
             head = newNodo;
             tail = newNodo;
-        } 
-        else {
-            tail.next = newNodo;
-            newNodo.prev = tail;
-            tail = tail.next;
+        } else {
+            newNodo.next = head;
+            head.prev = newNodo;
+            head = newNodo;
         }
     }
 
     @Override
     public T pop() {
-        if (head == null) {
+        if (isEmpty()) {
             throw new RuntimeException("Stack is empty");
         }
-        int dato = head.dato;
+
+        T dato = head.dato;
         head = head.next;
+
         if (head != null) {
             head.prev = null;
         } else {
             tail = null;
         }
-        return (T) Integer.valueOf(dato);
+
+        return dato;
     }
 
     @Override
     public T peek() {
-        if (head == null) {
+        if (isEmpty()) {
             throw new RuntimeException("Stack is empty");
         }
-        return (T) Integer.valueOf(head.dato);
+
+        return head.dato;
     }
 
     @Override
     public boolean isEmpty() {
         return head == null;
+    }
+
+    public Nodo<T> getHead() {
+        return head;
+    }
+
+    public Nodo<T> getTail() {
+        return tail;
     }
 }
