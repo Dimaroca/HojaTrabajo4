@@ -1,7 +1,14 @@
 package StackElements;
 
 import java.util.ArrayList;
-
+/**
+ * Stack implementation backed by an {@link ArrayList}.
+ *
+ * <p>This class provides a Last-In, First-Out (LIFO) structure
+ * using a dynamic array internally.</p>
+ *
+ * @param <T> the type of elements stored in the stack
+ */
 public class StackArrayList <T> implements Stack<T> {
 
      ArrayList<T> items = new ArrayList<T>();

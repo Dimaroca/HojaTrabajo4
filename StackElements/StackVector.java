@@ -1,5 +1,13 @@
 package StackElements;
-
+/**
+ * Stack implementation based on a fixed-size array (vector).
+ *
+ * <p>This class follows the Last-In, First-Out (LIFO) principle.
+ * The stack capacity must be initialized using {@link #setItems(int)}
+ * before pushing elements.</p>
+ *
+ * @param <T> the type of elements stored in the stack
+ */
 public class StackVector<T> implements Stack<T> {
     
     private T[] items;

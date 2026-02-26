@@ -3,7 +3,13 @@ package StackElements;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-
+/**
+ * Unit tests for the {@link StackSimpleList} class.
+ *
+ * <p>This test class verifies the correct behavior of the
+ * push, pop, and peek operations for a stack implemented
+ * using a singly linked list.</p>
+ */
 public class StackSimpleListTest {
     @Test
     public void testPeek() {

@@ -5,7 +5,14 @@ import CalculatorComponents.CalculatorDoubleList;
 import CalculatorComponents.CalculatorSimpleList;
 import CalculatorComponents.CalculatorVector;
 import java.util.ArrayList;
-
+/**
+ * Factory class responsible for selecting the appropriate
+ * calculator implementation based on the specified type.
+ *
+ * <p>This class converts an infix expression into postfix notation
+ * using {@link NumberOperator}, then delegates the evaluation
+ * to the selected calculator implementation.</p>
+ */
 public class StackFactory {
     
     public static double createStack(int type, String index) {

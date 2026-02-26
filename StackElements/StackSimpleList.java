@@ -1,5 +1,12 @@
 package StackElements;
-
+/**
+ * Stack implementation using a singly linked list structure.
+ *
+ * <p>This class follows the Last-In, First-Out (LIFO) principle.
+ * Elements are inserted and removed from the head of the list.</p>
+ *
+ * @param <T> the type of elements stored in the stack
+ */
 public class StackSimpleList<T> implements Stack<T> {
 
     private Nodo<T> head;

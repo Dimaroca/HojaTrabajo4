@@ -6,7 +6,12 @@ import static org.junit.Assert.assertNotEquals;
 import java.util.ArrayList;
 
 import org.junit.Test;
-
+/**
+ * Unit tests for the {@link StackArrayList} class.
+ *
+ * <p>This test class verifies the correct behavior of the
+ * stack operations: push, pop, and peek.</p>
+ */
 public class StackArrayListTest {
     @Test
     public void testPeek() {

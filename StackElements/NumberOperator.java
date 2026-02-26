@@ -1,7 +1,16 @@
 package StackElements;
 import java.util.ArrayList;
 import java.util.Arrays;
-
+/**
+ * The NumberOperator class converts an infix mathematical expression
+ * into postfix notation (Reverse Polish Notation).
+ *
+ * <p>The input expression must be space-separated. Supported operators
+ * are +, -, *, / and parentheses.</p>
+ *
+ * <p>This implementation follows a simplified version of the
+ * Shunting Yard algorithm.</p>
+ */
 public class NumberOperator {
     
     ArrayList<String> postfix = new ArrayList<>();

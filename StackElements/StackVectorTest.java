@@ -4,7 +4,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
 import org.junit.Test;
-
+/**
+ * Unit tests for the {@link StackVector} class.
+ *
+ * <p>This test class verifies the correct behavior of
+ * push, pop, peek, and capacity handling for the
+ * array-based stack implementation.</p>
+ */
 public class StackVectorTest {
 
     @Test

@@ -1,3 +1,7 @@
+package CalculatorComponents;
+
+import StackElements.StackDoubleList;
+
 /**
  * Calculator class that implements the Calc interface.
  * <p>
@@ -9,10 +13,6 @@
  * Internally, it uses a stack to process the input tokens.
  * </p>
  */
-package CalculatorComponents;
-
-import StackElements.StackDoubleList;
-
 public class CalculatorDoubleList implements Calc {
 
     private Double lastNum = null;

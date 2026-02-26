@@ -3,7 +3,13 @@ package StackElements;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-
+/**
+ * Unit tests for the {@link StackDoubleList} class.
+ *
+ * <p>This test class verifies the correct behavior of
+ * push, pop, and peek operations in a doubly linked
+ * list based stack implementation.</p>
+ */
 public class StackDoubleListTest {
     @Test
     public void testPeek() {

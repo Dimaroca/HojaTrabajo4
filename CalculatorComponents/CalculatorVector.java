@@ -1,3 +1,6 @@
+package CalculatorComponents;
+
+import StackElements.StackVector;
 /**
  * Calculator class that implements the Calc interface.
  * <p>
@@ -9,11 +12,6 @@
  * Internally, it uses a stack to process the input tokens.
  * </p>
  */
-
-package CalculatorComponents;
-
-import StackElements.StackVector;
-
 public class CalculatorVector implements Calc {
 
     private Double lastNum = null;

@@ -1,3 +1,7 @@
+package CalculatorComponents;
+
+import StackElements.StackArrayList;
+import java.util.ArrayList;
 /**
  * Calculator class that implements the Calc interface.
  * <p>
@@ -9,10 +13,6 @@
  * Internally, it uses a stack to process the input tokens.
  * </p>
  */
-package CalculatorComponents;
-
-import StackElements.StackArrayList;
-import java.util.ArrayList;
 
 public class CalculatorArrayList implements Calc {
 
