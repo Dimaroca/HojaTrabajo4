@@ -3,8 +3,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class NumberOperator {
+    
     ArrayList<String> postfix = new ArrayList<>();
     ArrayList<String> stack = new ArrayList<>();
+    
     public ArrayList<String> convert(String index) {
 
         ArrayList<String> parts = new ArrayList<>(Arrays.asList(index.split(" ")));
