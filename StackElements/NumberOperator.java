@@ -3,9 +3,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class NumberOperator {
+    
     ArrayList<String> postfix = new ArrayList<>();
     ArrayList<String> stack = new ArrayList<>();
-    public void convert(String index) {
+    
+    public ArrayList<String> convert(String index) {
 
         ArrayList<String> parts = new ArrayList<>(Arrays.asList(index.split(" ")));
 
@@ -49,9 +51,11 @@ public class NumberOperator {
             }
         }
 
-        while (!stack.isEmpty())
-            postfix.add(stack.remove(stack.size() - 1));
+        while (!stack.isEmpty()) {
+        postfix.add(stack.remove(stack.size() - 1));
+}
 
-        System.out.println(String.join(" ", postfix));
+        return postfix;
+        
     }
 }
