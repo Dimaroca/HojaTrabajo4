@@ -2,15 +2,15 @@ package StackElements;
 
 public class StackSimpleList<T> implements Stack<T> {
 
-    private Nodo head;
+    private Nodo<T> head;
 
     public StackSimpleList() {
-        this.head = null;
+        head = null;
     }
 
     @Override
     public void push(T item) {
-        Nodo newNodo = new Nodo((Integer) item);
+        Nodo<T> newNodo = new Nodo<>(item);
         newNodo.next = head;
         head = newNodo;
     }
@@ -20,9 +20,10 @@ public class StackSimpleList<T> implements Stack<T> {
         if (head == null) {
             throw new RuntimeException("Stack is empty");
         }
-        int dato = head.dato;
+
+        T dato = head.dato;
         head = head.next;
-        return (T) Integer.valueOf(dato);
+        return dato;
     }
 
     @Override
@@ -30,12 +31,16 @@ public class StackSimpleList<T> implements Stack<T> {
         if (head == null) {
             throw new RuntimeException("Stack is empty");
         }
-        return (T) Integer.valueOf(head.dato);
+
+        return head.dato;
     }
 
     @Override
     public boolean isEmpty() {
         return head == null;
     }
-    
+
+    public Nodo<T> getHead() {
+        return head;
+    }
 }

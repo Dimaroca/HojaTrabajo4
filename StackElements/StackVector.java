@@ -2,7 +2,7 @@ package StackElements;
 
 public class StackVector<T> implements Stack<T> {
     
-  private T[] items;
+    private T[] items;
     private int top = 0;
 
     @SuppressWarnings("unchecked")

@@ -1,11 +1,11 @@
 package StackElements;
 
-public class Nodo {
-    int dato;
-    Nodo next;
-    Nodo prev;
+public class Nodo<T> {
+     T dato;
+    Nodo<T> next;
+    Nodo<T> prev;
 
-    public Nodo(int dato) {
+    public Nodo(T dato) {
         this.dato = dato;
         this.next = null;
         this.prev = null;
